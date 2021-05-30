@@ -19,6 +19,11 @@
   font-size: 30px;
 }
 
+.nav-header a {
+  text-decoration: none;
+  color: black;
+}
+
 .links {
   display: flex;
   justify-content: space-around;
@@ -30,6 +35,8 @@
 
 .links a {
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 /*Slider CSS*/

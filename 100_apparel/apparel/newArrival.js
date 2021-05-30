@@ -1,4 +1,4 @@
-let newArrival = [
+const newArrival = [
   {
     id: 1,
     title: "Solar",
@@ -13,8 +13,20 @@ let newArrival = [
   },
   {
     id: 3,
-    title: "705 Total Black",
+    title: "Original",
+    price: 39.99,
     img: "./Img_home/newArrival_3.jpg",
+  },
+  {
+    id: 4,
+    title: "Veteran Aviator",
+    price: 89.99,
+    img: "./Img_home/newArrival_4.jpg",
+  },
+  {
+    id: 5,
+    title: "Jelly",
+    img: "./Img_home/newArrival_5.jpg",
   },
 ];
 
