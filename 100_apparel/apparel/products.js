@@ -97,17 +97,37 @@ const prod = [
   },
 ];
 
-const sectionCenter = document.querySelector(".section-center");
-const btns = document.querySelectorAll(".filter-btn");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
 window.addEventListener("DOMContentLoaded", () => {
   displayProducts(prod);
+
   displayButton();
 });
 
+const controlModal = () => {
+  const modal = document.querySelector(".modal");
+  const closeModal = document.querySelector(".close-modal");
+  const article = document.querySelectorAll(".menu-item");
+  article.forEach((menu) => {
+    menu.addEventListener("click", () => {
+      if (modal.classList.contains(".open-modal")) {
+        modal.classList.remove("open-modal");
+      } else {
+        modal.classList.add("open-modal");
+      }
+    });
+  });
+  closeModal.addEventListener("click", () => {
+    modal.classList.remove("open-modal");
+  });
+};
+
 const displayProducts = (menu) => {
   let items = menu.map((item) => {
-    return `<article class="menu-item">
+    return `
+    <div class="item-container">
+    <article class="menu-item">
     <img class="photo" src=${item.img}  />
     <div class="item-info">
     <header>
@@ -118,14 +138,41 @@ const displayProducts = (menu) => {
     ${item.desc.slice(0, 140)}...
     </p>
     </div>
-    </article>`;
+    </article>
+    <div class="${item.id} modal" > 
+    <article>
+      <button class="close-modal">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-container">
+        <img class="modal-photo" src=${item.img} />
+        <div class="modal-info">
+          <h3 class="modal-title">
+            Title: ${item.title}
+            <div class="modal-info-underline"></div>
+          </h3>
+          <h3 class="modal-price">
+            Price: $${item.price}
+            <div class="modal-info-underline"></div>
+          </h3>
+          <p>
+            ${item.desc}
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+  </div>
+    `;
   });
+  const sectionCenter = document.querySelector(".section-center");
   items = items.join("");
   sectionCenter.innerHTML = items;
+  controlModal();
 };
 
 const displayButton = () => {
-  btns.forEach((btn) => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const getCategory = e.currentTarget.dataset.id;
       const prodCategory = prod.filter((item) => {
@@ -141,3 +188,10 @@ const displayButton = () => {
     });
   });
 };
+
+/*
+각 모달 창에 알맞은 데이터 보내기(이미지, 타이틀, 가격, 설명 등등)
+close modal button 위치 옮기기 
+modal 페이지 상세 정보 이미지 만들기
+
+*/
