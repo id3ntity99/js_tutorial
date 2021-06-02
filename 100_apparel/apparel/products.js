@@ -95,6 +95,14 @@ const prod = [
     desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus accusamus quae excepturi ut, fugit corporis explicabo placeat libero repellendus accusantium laboriosam itaque provident nihil numquam officiis atque recusandae ex quo!",
     category: "pants",
   },
+  {
+    id: 13,
+    img: "./Img_prod/prod_9.jpg",
+    title: "Test Tester got Tested",
+    price: 99.98,
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus accusamus quae excepturi ut, fugit corporis explicabo placeat libero repellendus accusantium laboriosam itaque provident nihil numquam officiis atque recusandae ex quo!",
+    category: "pants",
+  },
 ];
 
 const filterBtns = document.querySelectorAll(".filter-btn");
@@ -106,20 +114,23 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const controlModal = () => {
-  const modal = document.querySelector(".modal");
-  const closeModal = document.querySelector(".close-modal");
+  const modals = document.querySelectorAll(".modal");
+  const closeModals = document.querySelectorAll(".close-modal");
   const article = document.querySelectorAll(".menu-item");
   article.forEach((menu) => {
-    menu.addEventListener("click", () => {
-      if (modal.classList.contains(".open-modal")) {
-        modal.classList.remove("open-modal");
-      } else {
-        modal.classList.add("open-modal");
-      }
+    menu.addEventListener("click", (e) => {
+      const id = e.currentTarget.dataset.id;
+      modals.forEach((modal) => {
+        if (modal.classList.contains(`${id}`)) {
+          modal.classList.toggle("open-modal");
+        }
+        closeModals.forEach((closeModal) => {
+          closeModal.addEventListener("click", () => {
+            modal.classList.remove("open-modal");
+          });
+        });
+      });
     });
-  });
-  closeModal.addEventListener("click", () => {
-    modal.classList.remove("open-modal");
   });
 };
 
@@ -127,7 +138,7 @@ const displayProducts = (menu) => {
   let items = menu.map((item) => {
     return `
     <div class="item-container">
-    <article class="menu-item">
+    <article class="menu-item" data-id="${item.id}">
     <img class="photo" src=${item.img}  />
     <div class="item-info">
     <header>
