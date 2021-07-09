@@ -122,41 +122,85 @@
 /*Slider CSS*/
 
 /*New Arrival*/
-.division {
-  width: 100%;
-  max-width: 1920px;
-  height: 0.15rem;
-  background: gray;
-}
-.new-arrival-sec {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
-  gap: 1rem 2rem;
-  justify-items: center;
-}
-
-.new-item {
+.title {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  text-align: center;
-  height: 400px;
+  margin-bottom: 40px;
+  height: 100px;
 }
 
-.new-item img {
-  width: 400px;
-  height: 300px;
-  border-radius: 20px;
+.division {
+  width: 300px;
+  height: 0.1rem;
+  background: grey;
 }
-.new-item header {
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  gap: 5rem 5rem;
+  justify-items: center;
+}
+
+.menu-item {
+  display: grid;
+  gap: 5rem 5rem;
+  width: 540px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  transform: scale(1.1, 1.1);
+  transition: all 0.2s linear;
+}
+
+.photo {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border: 0.25rem solid black;
+  border-radius: 10px;
+}
+.menu-item header {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 0px 30px;
-  font-size: 18px;
+  justify-content: space-between;
+  border-bottom: 0.5px dotted grey;
 }
 
+@media screen and (min-width: 400px) {
+  .menu-item {
+    grid-template-columns: 225px 1fr;
+    gap: 0 1.25rem;
+    max-width: 40rem;
+  }
+  .photo {
+    width: 200px;
+    height: 175px;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .menu-item {
+    grid-template-columns: 225px 1fr;
+    gap: 0 1.25rem;
+    max-width: 40rem;
+  }
+  .photo {
+    width: 200px;
+    height: 175px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .section-center {
+    width: 95vw;
+    grid-template-columns: 1fr 1fr;
+  }
+  .photo {
+    height: 150px;
+  }
+}
 /*New Arrival*/

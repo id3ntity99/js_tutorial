@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+.hidden {
+  opacity: 0;
+  z-index: 100;
+  transition: all 0.5s linear;
+  display: none;
+}
+
+.bacground_img {
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  z-index: 99;
+  object-fit: cover;
+}
+
+.main-section {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+
+.clock {
+  font-size: 800%;
+  text-shadow: 1px 1px 7px #55e997;
+  letter-spacing: 1px;
+}
+
+.login-input {
+  border-style: none;
+  border-bottom: 3px solid white;
+  outline: none;
+  background: transparent;
+  width: 700px;
+  height: 100px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.todo-input {
+  border-style: none;
+  border-bottom: 3px solid white;
+  outline: none;
+  background: transparent;
+  width: 700px;
+  height: 100px;
+  font-size: 30px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+#greeting {
+  font-size: 500%;
+  text-shadow: 0 0 7px #55e997;
+}
+
+#quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 0 7px #55e997;
+  height: 10vh;
+}
+
+#todo-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+=============== 
+Sidebar
+===============
+*/
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  color: white;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+  font-size: 1.5rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  transition: var(--transition);
+  cursor: pointer;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.close-btn {
+  font-size: 1.75rem;
+  background: transparent;
+  border-color: transparent;
+  color: hsl(205, 78%, 60%);
+  transition: all 0.3s linear;
+  cursor: pointer;
+  color: tomato;
+}
+.close-btn:hover {
+  color: tomato;
+  transform: rotate(360deg);
+}
+
+.links {
+  list-style: none;
+}
+
+.links a {
+  display: block;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  padding: 1rem 1.5rem;
+  color: hsl(210, 22%, 49%);
+  transition: all 0.3s linear;
+  text-decoration: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1rem;
+  transition: all 0.3s linear;
+  transform: translate(-100%);
+}
+.show-sidebar {
+  transform: translate(0);
+}
+@media screen and (min-width: 676px) {
+  .sidebar {
+    width: 400px;
+  }
+}
