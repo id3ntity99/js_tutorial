@@ -1,5 +1,18 @@
-const card = document.querySelector(".card");
+const btn = document.querySelector(".switch-btn");
+const vid = document.querySelector(".video-container");
 
-card.addEventListener("click", () => {
-  card.classList.add("move-left");
+btn.addEventListener("click", () => {
+  if (!btn.classList.contains("slide")) {
+    btn.classList.add("slide");
+    vid.pause();
+  } else {
+    btn.classList.remove("slide");
+    vid.play();
+  }
+});
+
+// preloader loading
+const preloader = document.querySelector(".preloader");
+window.addEventListener("load", () => {
+  preloader.classList.add("hide-preloader");
 });

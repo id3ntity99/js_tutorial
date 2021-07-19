@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+}
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  max-width: 1800px;
+  flex-direction: column;
+}
+
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  height: 100px;
+  width: 100vw;
+  background-color: #b5eaea;
+  color: white;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
+}
+
+.main-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding: 50px 20px;
+}
+
+.newInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  padding: 80px 40px;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+/* footer*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cbf0f0;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  height: 100px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition-duration: 250ms;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 30vh;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.box a {
+  text-decoration: none;
+  color: black;
+}
+
+.minimize {
+  position: fixed;
+  z-index: 2000;
+  bottom: 12%;
+  right: 1%;
+  width: 40px;
+  height: 30px;
+  font-size: 1.25rem;
+  transition-duration: 250ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.minimize:hover i {
+  color: tomato;
+  transition: all 0.25s linear;
+}
+
+.hover:hover {
+  box-shadow: 0 0 0 #cccccc, 0 0 0 #ffffff, 10px 10px 10px #cccccc inset,
+    -10px -10px 10px #ffffff inset;
+}
+
+.min {
+  height: 0;
+  opacity: 0;
+}
