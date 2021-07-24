@@ -1,28 +1,29 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-const URL = "http://www.archiworldjournal.com/news/articleList.html";
-const LINKS = [];
+const URL = "http://www.archiworldjournal.com/news/articleList.html?page=1";
+const ARTICLES = [];
 
-axios.get(URL).then((res) => {
-  const $ = cheerio.load(res.data);
-  //=======Get links from each articles.======
-  const getLinks = $(".links");
-  getLinks.each((idx, val) => {
+function getLinksAndTitles($) {
+  const links = $(".links");
+  links.each((idx, val) => {
     const link = $(val).attr("href");
+    //Delete empty str
     if (link === "") {
       return;
     }
-    //Delete empty str
     const newURL = "http://www.archiworldjournal.com" + `${link}`;
-    LINKS.push({ "Article link": newURL });
+    const title = $(val).text();
+    ARTICLES.push({ "Article link": newURL, "Article Title": title });
   });
-  //=======Get links from each articles.======
-  console.log(LINKS);
+  console.log(ARTICLES);
+}
+
+axios.get(URL).then((res) => {
+  const $ = cheerio.load(res.data);
+  getLinksAndTitles($);
 });
 
-/*  const title = $(".links").text();
-  //Get titles of each articels
-
-  const date = $(".list-dated").text();
-  //Get date and name of reporter */
+/* ##################   PLEASE CHECK THIS LIST   ##################
+Code Cleaning Required
+*/
